@@ -1,0 +1,31 @@
+{% load static %}
+<!-------------------------------Full page navbar-->
+<nav class="blue" role="navigation">
+    <div class="nav-wrapper container">
+    <a id="logo-container" href="{% url 'home' %}" class="brand-logo">Climathon Dublin</a>
+    <ul class="right hide-on-med-and-down">
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'sale' %}">Hackathon</a></li>
+            <li><a href="{% url 'rent' %}">Contact</a></li>
+            <li><a href="{% url 'propertys' %}">EIT-Climate KIC</a></li>
+            <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+            <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+        {% endif %}               
+    </ul>
+<!--------------------------------mobile navbar-->
+    <ul id="nav-mobile" class="sidenav">
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'sale' %}">Hackathon</a></li>
+            <li><a href="{% url 'rent' %}">Contact</a></li>
+            <li><a href="{% url 'propertys' %}">EIT-Climate KIC</a></li>
+            <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+            <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+        {% endif %}
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
